@@ -5,7 +5,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://postgres:root@localhost:5432/closer';
+var connectionString = 'postgres://fddqwgcsigiqfq:fb6e444bf55dfcfef654ce13c9aa7da8df345403a0fcce2c085664c81a5ee5b5@ec2-54-163-230-178.compute-1.amazonaws.com:5432/dacn6p0tcppp9i';
 const db = pgp(connectionString);
 
 //query functions
