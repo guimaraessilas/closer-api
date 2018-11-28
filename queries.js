@@ -43,7 +43,7 @@ function findUser(req, res, next) {
 
 function findUserByEmail(req, res, next) {
     console.log("get single user");
-    db.many(`select id, username, email, birth_date, profile_photo_path, fullname from user_profile where email='${req.params.email}'`, req.params)
+    db.any(`select id, username, email, birth_date, profile_photo_path, fullname from user_profile where email='${req.params.email}'`, req.params)
         .then(function (data) {
             res.status(200)
                 .json({
@@ -53,7 +53,11 @@ function findUserByEmail(req, res, next) {
                 });
         })
         .catch(function (err) {
-            return next(err);
+            res.status(200)
+                .json({
+                    status: 'success',
+                    message: 'No user finded'
+                });
         });
 }
 
